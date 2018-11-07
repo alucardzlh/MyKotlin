@@ -14,6 +14,7 @@ import java.io.FileInputStream
 import java.io.UnsupportedEncodingException
 import java.net.URISyntaxException
 import java.security.MessageDigest
+import java.text.SimpleDateFormat
 import java.util.*
 
 /**
@@ -164,6 +165,28 @@ object MyUtil {
             return sb.toString()
         } catch (e: UnsupportedEncodingException) {
             return ""
+        }
+
+    }
+
+
+    /**
+     * Cofox 日期函数
+     * created at 2017/12/19 0:06
+     * 功能描述：返回当前日期，格式：2017-12-19 12:13:55
+     * file:cofoxFuction.kt
+     *
+     *
+     * 修改历史：
+     * 2017/12/19:新建
+     *
+     */
+    fun getNow(): String {
+        if (android.os.Build.VERSION.SDK_INT >= 24){
+            return SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date())
+        }else{
+            var tms = Calendar.getInstance()
+            return tms.get(Calendar.YEAR).toString() + "-" + tms.get(Calendar.MONTH).toString() + "-" + tms.get(Calendar.DAY_OF_MONTH).toString() + " " + tms.get(Calendar.HOUR_OF_DAY).toString() + ":" + tms.get(Calendar.MINUTE).toString() +":" + tms.get(Calendar.SECOND).toString() +"." + tms.get(Calendar.MILLISECOND).toString()
         }
 
     }
