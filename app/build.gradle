@@ -42,4 +42,6 @@ dependencies {
 //RxLifecycle相关
     implementation(['com.trello.rxlifecycle2:rxlifecycle-kotlin:2.2.2',
              'com.trello.rxlifecycle2:rxlifecycle-components:2.2.2'])
+
+    implementation "com.github.tbruyelle:rxpermissions:0.10.2+"
 }
