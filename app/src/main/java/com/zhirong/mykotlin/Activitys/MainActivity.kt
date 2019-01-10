@@ -12,6 +12,7 @@ import com.zhirong.mykotlin.Http.ApiResponse
 import com.zhirong.mykotlin.Http.NetworkScheduler
 import com.zhirong.mykotlin.R
 import com.zhirong.mykotlin.Utils.MyUtil
+import io.reactivex.android.schedulers.AndroidSchedulers
 
 class MainActivity : RxAppCompatActivity() {
 
@@ -22,6 +23,7 @@ class MainActivity : RxAppCompatActivity() {
         ApiClient.instance.service.testlogin(MyUtil.MD5s(""+ Build.MODEL)!!,"","true",Build.MODEL,"abc")
                 .compose(NetworkScheduler.compose())
                 .bindUntilEvent(this,ActivityEvent.DESTROY)
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : ApiResponse<testlogin>(this) {
                     override fun success(data: testlogin) {
                     }
