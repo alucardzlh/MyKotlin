@@ -33,7 +33,7 @@ class ApiClient private constructor() {
                 .build()
 
         val retrofit = Retrofit.Builder()
-                .baseUrl("")   //本文以GitHub API为例
+                .baseUrl("http://www.baidu.com")   //本文以GitHub API为例
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(okHttpClient)

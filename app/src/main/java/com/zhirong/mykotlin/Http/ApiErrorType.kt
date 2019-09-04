@@ -16,7 +16,7 @@
 package com.zhirong.mykotlin.Http
 
 import android.content.Context
-import android.support.annotation.StringRes
+import androidx.annotation.StringRes
 import com.zhirong.mykotlin.R
 
 /**
